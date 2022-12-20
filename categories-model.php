@@ -3,7 +3,7 @@ function getAllCategory()
 {
     $db = require 'db-connect.php';
     $sql = 'SELECT *FROM `categories`';
-    return   mysqli_query($db, $sql);
+    return mysqli_query($db, $sql);
 }
 
 function getCategory($id)
@@ -32,5 +32,14 @@ function delete($id)
     $sql = "DELETE FROM `categories` WHERE `categories`.`id`=$id";
     $result = mysqli_query($db, $sql);
     return $result;
+
+}
+
+function update($id, $name)
+{
+    $db = require 'db-connect.php';
+    $sql = "UPDATE `categories` SET `name` = '$name' WHERE `categories`.`id` = $id";
+    return mysqli_query($db, $sql);
+
 
 }
